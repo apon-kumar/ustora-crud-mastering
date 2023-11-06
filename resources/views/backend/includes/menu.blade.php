@@ -42,6 +42,11 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Add Product</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('products.manage') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Manage Product</span></a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

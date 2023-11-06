@@ -22,4 +22,6 @@ Route::middleware([
     Route::post('/calculator-result', [CalculatorController::class, 'calculatorResult'])->name('calculator-result');
     Route::get('/create-product', [ProductController::class, 'create'])->name('products.create');
     Route::post('/store-product', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/manage-product', [ProductController::class, 'manage'])->name('products.manage');
+    Route::get('/delete-product/{id}', [ProductController::class, 'delete'])->name('products.delete');
 });

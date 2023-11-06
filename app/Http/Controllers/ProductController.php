@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    protected $products = [];
+
     public function create()
     {
         return view('backend.products.create');
@@ -28,5 +30,24 @@ class ProductController extends Controller
         ProductInfo::storeProduct($request);
 
         return back()->with('success', 'Product created successfully.');
+    }
+
+    public function manage()
+    {
+        $this->products = ProductInfo::all();
+        return view('backend.products.manage', [
+            'products' => $this->products
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $product = ProductInfo::find($id);
+        if (file_exists($product->image))
+        {
+            unlink($product->image);
+        }
+        $product->delete();
+        return back()->with('success', 'Product deleted successfully.');
     }
 }

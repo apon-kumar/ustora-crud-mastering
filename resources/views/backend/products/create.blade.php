@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-body">
                         <span class="text-success">{{ session('success') }}</span>
-                        <form action="{{ route('products.store') }}" method="post">
+                        <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-2">
                                 <label for="" class="col-md-4">Product Name</label>
